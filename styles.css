@@ -5,6 +5,12 @@ body {
   align-items: center;
 }
 
-#display > * {
-  border: 1px dashed black;
+:root {
+  --dark-orange: #ff8642;
+  --light-orange: #ffd79b;
+  --off-white: #fffcf2;
+}
+
+canvas {
+  border: 5px solid var(--light-orange);
 }
