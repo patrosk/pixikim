@@ -11,6 +11,8 @@ body {
   --off-white: #fffcf2;
 }
 
-canvas {
+display {
+  display: block;
+  background: blue;
   border: 5px solid var(--light-orange);
 }

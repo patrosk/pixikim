@@ -28,32 +28,46 @@
 // startButton.x = app.view.width / 2;
 // startButton.y = app.view.height / 5;
 
-var renderer = PIXI.autoDetectRenderer(512, 512, {
-    transparent: true,
-    resolution: 1
-});
-document.getElementById('display').appendChild(renderer.view);
+// var renderer = PIXI.autoDetectRenderer(512, 512, {
+//     transparent: true,
+//     resolution: 1
+// });
+// document.getElementById('display').appendChild(renderer.view);
 
-var stage = new PIXI.Container();
-PIXI.loader
-    .add("spritesheet", "./images/sprite_sheet.png")
-    .load(setup);
+// var stage = new PIXI.Container();
+// PIXI.loader
+//     .add("spritesheet", "./images/sprite_sheet.png")
+//     .load(setup);
 
-var sprite;
-function setup() {
-    stage.interactive = true;
+// var sprite;
+// function setup() {
+//     stage.interactive = true;
 
-    var rect = new PIXI.Rectangle(0, 0, 597, 708);
-    var texture = PIXI.loader.resources['spritesheet'].texture;
-    texture.frame = rect;
+//     var rect = new PIXI.Rectangle(0, 0, 597, 708);
+//     var texture = PIXI.loader.resources['spritesheet'].texture;
+//     texture.frame = rect;
 
-    sprite = new PIXI.Sprite(texture);
+//     sprite = new PIXI.Sprite(texture);
 
-    stage.addChild(sprite);
-    renderer.render(stage);
-    animationLoop();
-}
+//     stage.addChild(sprite);
+//     renderer.render(stage);
+//     animationLoop();
+// }
 
 // app.stage.addChild(startButton);
 // app.stage.addChild(h1);
 // app.stage.addChild(kim);
+
+const display = document.getElementById('display');
+
+const app = new PIXI.Application({
+    view: display,
+    height: window.innerHeight,
+    width: window.innerWidth
+});
+
+const texture = PIXI.Texture.from('./images/kim1.png');
+const img = new PIXI.Sprite(texture);
+img.x = app.renderer.width / 2;
+img.y = app.renderer.height / 2;
+app.stage.addChild(img);
